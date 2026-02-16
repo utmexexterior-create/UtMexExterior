@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UTMEX Exterior LLC</title>
+  <style>
+    /* Base Styles */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #5AA12B;
+      background-color: #ffffff;
+      line-height: 1.6;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    header {
+      background-color: #ffffff;
+      padding: 40px 20px;
+      text-align: center;
+      border-bottom: 2px solid #524E4E;
+      position: relative;
+      z-index: 1; /* keep above background images */
+    }
+
+    header img {
+      max-width: 180px;
+    }
+
+    header h1 {
+      margin: 10px 0 5px;
+      font-size: 2em;
+    }
+
+    header p {
+      margin: 0;
+      font-size: 1.1em;
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1; /* content above background images */
+    }
+
+    h2 {
+      color: #524E4E;
+      font-size: 1.8em;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    ul li {
+      margin-bottom: 10px;
+      text-align: center;
+      font-size: 1.1em;
+    }
+
+    /* Contact Form */
+    form {
+      display: flex;
+      flex-direction: column;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    input, textarea {
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1em;
+    }
+
+    button {
+      padding: 12px;
+      background-color: #524E4E;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 1.1em;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #8C1D18;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #f5f5f5;
+      color: #5AA12B;
+      border-top: 1px solid #ccc;
+      font-size: 0.9em;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Language Toggle */
+    #lang-toggle {
+      margin-top: 15px;
+    }
+    #lang-toggle button {
+      margin: 0 5px;
+      padding: 6px 12px;
+      font-size: 0.9em;
+      border-radius: 4px;
+      border: 1px solid #524E4E;
+      cursor: pointer;
+      background: #524E4E; /* dark background */
+      color: white;        /* visible text */
+    }
+    #lang-toggle button:hover {
+      background: #8C1D18;
+    }
+
+    /* Decorative Background Images */
+    #bg-left, #bg-right {
+      position: fixed;
+      top: 0;
+      width: 200px; 
+      height: 100%;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      pointer-events: none;
+      z-index: 0;
+      transition: background-image 1s ease-in-out;
+      opacity: 1; /* full brightness */
+    }
+
+    #bg-left { left: 0; }
+    #bg-right { right: 0; }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      header h1 { font-size: 1.5em; }
+      h2 { font-size: 1.5em; }
+      section { padding: 40px 15px; }
+
+      /* Option 2: show side images smaller on mobile */
+      #bg-left, #bg-right {
+        width: 80px; /* smaller width */
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Decorative Background Images -->
+  <div id="bg-left"></div>
+  <div id="bg-right"></div>
+
+  <!-- Header / Hero Section -->
+  <header>
+    <img src="logo.png" alt="UTMEX Exterior LLC Logo">
+    <h1 id="hero-title">Exterior Construction & Remodeling</h1>
+    <p id="hero-subtitle">
+      Siding, Roofing, Stucco, Soffit, Fascia & Painting – Residential & Commercial
+    </p>
+
+    <!-- Language Toggle -->
+    <div id="lang-toggle">
+      <button onclick="setLanguage('en')">English</button>
+      <button onclick="setLanguage('es')">Español</button>
+    </div>
+  </header>
+
+  <!-- Services Section -->
+  <section id="services">
+    <h2 id="services-title">Our Services</h2>
+    <ul>
+      <li id="service1">Siding Installation & Repair</li>
+      <li id="service2">Roofing Installation & Repair</li>
+      <li id="service3">Soffit & Fascia</li>
+      <li id="service4">Stucco</li>
+      <li id="service5">Interior & Exterior Painting</li>
+      <li id="service6">General Exterior Repairs</li>
+      <li id="service7">Residential & Commercial Projects</li>
+    </ul>
+  </section>
+
+  <!-- Service Area Section -->
+  <section id="area">
+    <h2 id="area-title">Areas We Serve</h2>
+    <p id="area-text" style="text-align:center;">
+      UTMEX Exterior LLC proudly serves homeowners, property managers, and commercial clients throughout Utah, with service coverage ranging from <strong>southern Wyoming to St. George</strong>.
+    </p>
+  </section>
+
+  <!-- Why Choose Us Section -->
+  <section id="why">
+    <h2 id="why-title">Why Choose Us</h2>
+    <ul>
+      <li id="why1">Experienced from demolition to finished work</li>
+      <li id="why2">Residential and commercial expertise</li>
+      <li id="why3">Quality workmanship and reliable service</li>
+      <li id="why4">Licensed and insured</li>
+      <li id="why5">Serving all of Utah</li>
+    </ul>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2 id="contact-title">Request a Free Estimate</h2>
+    <form id="contactForm">
+      <input type="text" name="name" id="contact-name" placeholder="Your Name" required>
+      <input type="tel" name="phone" id="contact-phone" placeholder="Phone Number" required>
+      <input type="email" name="email" id="contact-email" placeholder="Email Address" required>
+      <textarea name="message" id="contact-message" rows="5" placeholder="Your Project Details"></textarea>
+      <button type="submit" id="contact-button">Send Message</button>
+    </form>
+    <p id="contact-text" style="text-align:center; margin-top: 15px;">
+      Call or message us today to schedule your estimate.
+    </p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    © 2026 UTMEX Exterior LLC | Licensed & Insured
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // --- Language Toggle ---
+    const translations = {
+      en: {
+        heroTitle: "Exterior Construction & Remodeling",
+        heroSubtitle: "Siding, Roofing, Stucco, Soffit, Fascia & Painting – Residential & Commercial",
+        servicesTitle: "Our Services",
+        service1: "Siding Installation & Repair",
+        service2: "Roofing Installation & Repair",
+        service3: "Soffit & Fascia",
+        service4: "Stucco",
+        service5: "Interior & Exterior Painting",
+        service6: "General Exterior Repairs",
+        service7: "Residential & Commercial Projects",
+        areaTitle: "Areas We Serve",
+        areaText: "UTMEX Exterior LLC proudly serves homeowners, property managers, and commercial clients throughout Utah, with service coverage ranging from southern Wyoming to St. George.",
+        whyTitle: "Why Choose Us",
+        why1: "Experienced from demolition to finished work",
+        why2: "Residential and commercial expertise",
+        why3: "Quality workmanship and reliable service",
+        why4: "Licensed and insured",
+        why5: "Serving all of Utah",
+        contactTitle: "Request a Free Estimate",
+        contactNamePlaceholder: "Your Name",
+        contactPhonePlaceholder: "Phone Number",
+        contactEmailPlaceholder: "Email Address",
+        contactMessagePlaceholder: "Your Project Details",
+        contactButton: "Send Message",
+        contactText: "Call or message us today to schedule your estimate."
+      },
+      es: {
+        heroTitle: "Construcción y Remodelación Exterior",
+        heroSubtitle: "Revestimiento, Techado, Estuco, Sofito, Fascia y Pintura – Residencial y Comercial",
+        servicesTitle: "Nuestros Servicios",
+        service1: "Instalación y Reparación de Revestimiento",
+        service2: "Instalación y Reparación de Techos",
+        service3: "Sofito y Fascia",
+        service4: "Estuco",
+        service5: "Pintura Interior y Exterior",
+        service6: "Reparaciones Generales Exteriores",
+        service7: "Proyectos Residenciales y Comerciales",
+        areaTitle: "Áreas que Servimos",
+        areaText: "UTMEX Exterior LLC atiende orgullosamente a propietarios, administradores de propiedades y clientes comerciales en todo Utah, con cobertura de servicio desde el sur de Wyoming hasta St. George.",
+        whyTitle: "Por Qué Elegirnos",
+        why1: "Experiencia desde la demolición hasta el trabajo terminado",
+        why2: "Experiencia residencial y comercial",
+        why3: "Mano de obra de calidad y servicio confiable",
+        why4: "Licenciado y asegurado",
+        why5: "Sirviendo todo Utah",
+        contactTitle: "Solicite un Presupuesto Gratis",
+        contactNamePlaceholder: "Su Nombre",
+        contactPhonePlaceholder: "Número de Teléfono",
+        contactEmailPlaceholder: "Correo Electrónico",
+        contactMessagePlaceholder: "Detalles de su Proyecto",
+        contactButton: "Enviar Mensaje",
+        contactText: "Llame o envíe un mensaje hoy para programar su presupuesto."
+      }
+    };
+
+    function setLanguage(lang) {
+      document.getElementById("hero-title").innerText = translations[lang].heroTitle;
+      document.getElementById("hero-subtitle").innerText = translations[lang].heroSubtitle;
+      document.getElementById("services-title").innerText = translations[lang].servicesTitle;
+      document.getElementById("service1").innerText = translations[lang].service1;
+      document.getElementById("service2").innerText = translations[lang].service2;
+      document.getElementById("service3").innerText = translations[lang].service3;
+      document.getElementById("service4").innerText = translations[lang].service4;
+      document.getElementById("service5").innerText = translations[lang].service5;
+      document.getElementById("service6").innerText = translations[lang].service6;
+      document.getElementById("service7").innerText = translations[lang].service7;
+      document.getElementById("area-title").innerText = translations[lang].areaTitle;
+      document.getElementById("area-text").innerText = translations[lang].areaText;
+      document.getElementById("why-title").innerText = translations[lang].whyTitle;
+      document.getElementById("why1").innerText = translations[lang].why1;
+      document.getElementById("why2").innerText = translations[lang].why2;
+      document.getElementById("why3").innerText = translations[lang].why3;
+      document.getElementById("why4").innerText = translations[lang].why4;
+      document.getElementById("why5").innerText = translations[lang].why5;
+      document.getElementById("contact-title").innerText = translations[lang].contactTitle;
+      document.getElementById("contact-name").placeholder = translations[lang].contactNamePlaceholder;
+      document.getElementById("contact-phone").placeholder = translations[lang].contactPhonePlaceholder;
+      document.getElementById("contact-email").placeholder = translations[lang].contactEmailPlaceholder;
+      document.getElementById("contact-message").placeholder = translations[lang].contactMessagePlaceholder;
+      document.getElementById("contact-button").innerText = translations[lang].contactButton;
+      document.getElementById("contact-text").innerText = translations[lang].contactText;
+
+      document.documentElement.lang = lang;
+    }
+
+    // --- Decorative Left & Right Background Images ---
+    const leftImages = [
+      "left1.jpg","left2.jpg","left3.jpg","left4.jpg","left5.jpg","left6.jpg","left7.jpg","left8.jpg"
+    ];
+
+    const rightImages = [
+      "right1.jpg","right2.jpg","right3.jpg","right4.jpg","right5.jpg","right6.jpg","right7.jpg","right8.jpg"
+    ];
+
+    let current = 0;
+    function rotateSideImages() {
+      document.getElementById("bg-left").style.backgroundImage = `url('${leftImages[current]}')`;
+      document.getElementById("bg-right").style.backgroundImage = `url('${rightImages[current]}')`;
+      current = (current + 1) % leftImages.length;
+    }
+
+    rotateSideImages(); // initial display
+    setInterval(rotateSideImages, 5000); // rotate every 5 seconds
+
+    // --- Form Submission with formatted email ---
+    const contactForm = document.getElementById('contactForm');
+
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault(); // prevent normal form submission
+
+      // Get form values
+      const name = document.getElementById('contact-name').value;
+      const phone = document.getElementById('contact-phone').value;
+      const email = document.getElementById('contact-email').value;
+      const message = document.getElementById('contact-message').value;
+
+      // Build formatted email body
+      const body = `Hello UTMEX Exterior LLC,%0D%0A%0D%0A` +
+                   `You have received a new estimate request with the following details:%0D%0A%0D%0A` +
+                   `Name: ${name}%0D%0A` +
+                   `Phone: ${phone}%0D%0A` +
+                   `Email: ${email}%0D%0A` +
+                   `Project Details: ${message}%0D%0A%0D%0A` +
+                   `Thank you!`;
+
+      // Open default mail client with formatted email
+      window.location.href = `mailto:youremail@domain.com?subject=New Estimate Request from ${encodeURIComponent(name)}&body=${body}`;
+    });
+  </script>
+
+</body>
+</html>
