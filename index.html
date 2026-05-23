@@ -629,8 +629,8 @@
   <!-- Hero Section -->
   <section class="hero">
     <div class="lang-toggle">
-      <button class="lang-btn active" onclick="setLanguage('en')">English</button>
-      <button class="lang-btn" onclick="setLanguage('es')">Español</button>
+      <button type="button" class="lang-btn active" data-lang="en" onclick="setLanguage('en')">English</button>
+      <button type="button" class="lang-btn" data-lang="es" onclick="setLanguage('es')">Español</button>
     </div>
     <div class="hero-content">
       <h1 id="hero-title">Exterior Construction &<br><span class="hero-accent">Remodeling</span></h1>
@@ -821,56 +821,80 @@
 
     function setLanguage(lang) {
       const t = translations[lang];
-      document.getElementById("nav1").textContent = t.nav1;
-      document.getElementById("nav2").textContent = t.nav2;
-      document.getElementById("nav3").textContent = t.nav3;
-      document.getElementById("nav4").textContent = t.nav4;
-      document.getElementById("company-name").textContent = t.companyName;
-      document.getElementById("tagline").textContent = t.tagline;
-      document.getElementById("hero-title").innerHTML = t.heroTitle;
-      document.getElementById("hero-subtitle").textContent = t.heroSubtitle;
-      document.getElementById("btn-estimate").textContent = t.btnEstimate;
-      document.getElementById("btn-call").textContent = t.btnCall;
-      document.getElementById("services-title").textContent = t.servicesTitle;
-      document.getElementById("service1").textContent = t.service1;
-      document.getElementById("service1-desc").textContent = t.service1Desc;
-      document.getElementById("service2").textContent = t.service2;
-      document.getElementById("service2-desc").textContent = t.service2Desc;
-      document.getElementById("service3").textContent = t.service3;
-      document.getElementById("service3-desc").textContent = t.service3Desc;
-      document.getElementById("service4").textContent = t.service4;
-      document.getElementById("service4-desc").textContent = t.service4Desc;
-      document.getElementById("service5").textContent = t.service5;
-      document.getElementById("service5-desc").textContent = t.service5Desc;
-      document.getElementById("service6").textContent = t.service6;
-      document.getElementById("service6-desc").textContent = t.service6Desc;
-      document.getElementById("area-title").textContent = t.areaTitle;
-      document.getElementById("area-text").innerHTML = t.areaText;
-      document.getElementById("coverage-badge").textContent = t.coverageBadge;
-      document.getElementById("why-title").textContent = t.whyTitle;
-      document.getElementById("why1").textContent = t.why1;
-      document.getElementById("why1-desc").textContent = t.why1Desc;
-      document.getElementById("why2").textContent = t.why2;
-      document.getElementById("why2-desc").textContent = t.why2Desc;
-      document.getElementById("why3").textContent = t.why3;
-      document.getElementById("why3-desc").textContent = t.why3Desc;
-      document.getElementById("why4").textContent = t.why4;
-      document.getElementById("why4-desc").textContent = t.why4Desc;
-      document.getElementById("why5").textContent = t.why5;
-      document.getElementById("why5-desc").textContent = t.why5Desc;
-      document.getElementById("why6").textContent = t.why6;
-      document.getElementById("why6-desc").textContent = t.why6Desc;
-      document.getElementById("contact-title").textContent = t.contactTitle;
-      document.getElementById("contact-name").placeholder = t.contactNamePlaceholder;
-      document.getElementById("contact-phone").placeholder = t.contactPhonePlaceholder;
-      document.getElementById("contact-email").placeholder = t.contactEmailPlaceholder;
-      document.getElementById("contact-message").placeholder = t.contactMessagePlaceholder;
-      document.getElementById("contact-button").textContent = t.contactButton;
-      document.getElementById("contact-text").textContent = t.contactText;
+      if (!t) return;
+
+      // Helper functions prevent the script from breaking if an element is removed later.
+      const setText = (id, value) => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = value;
+      };
+
+      const setHTML = (id, value) => {
+        const el = document.getElementById(id);
+        if (el) el.innerHTML = value;
+      };
+
+      const setPlaceholder = (id, value) => {
+        const el = document.getElementById(id);
+        if (el) el.placeholder = value;
+      };
+
+      setText("nav1", t.nav1);
+      setText("nav2", t.nav2);
+      setText("nav3", t.nav3);
+      setText("nav4", t.nav4);
+      setHTML("hero-title", t.heroTitle);
+      setText("hero-subtitle", t.heroSubtitle);
+      setText("btn-estimate", t.btnEstimate);
+      setText("btn-call", t.btnCall);
+      setText("services-title", t.servicesTitle);
+      setText("service1", t.service1);
+      setText("service1-desc", t.service1Desc);
+      setText("service2", t.service2);
+      setText("service2-desc", t.service2Desc);
+      setText("service3", t.service3);
+      setText("service3-desc", t.service3Desc);
+      setText("service4", t.service4);
+      setText("service4-desc", t.service4Desc);
+      setText("service5", t.service5);
+      setText("service5-desc", t.service5Desc);
+      setText("service6", t.service6);
+      setText("service6-desc", t.service6Desc);
+      setText("area-title", t.areaTitle);
+      setHTML("area-text", t.areaText);
+      setText("coverage-badge", t.coverageBadge);
+      setText("why-title", t.whyTitle);
+      setText("why1", t.why1);
+      setText("why1-desc", t.why1Desc);
+      setText("why2", t.why2);
+      setText("why2-desc", t.why2Desc);
+      setText("why3", t.why3);
+      setText("why3-desc", t.why3Desc);
+      setText("why4", t.why4);
+      setText("why4-desc", t.why4Desc);
+      setText("why5", t.why5);
+      setText("why5-desc", t.why5Desc);
+      setText("why6", t.why6);
+      setText("why6-desc", t.why6Desc);
+      setText("contact-title", t.contactTitle);
+      setPlaceholder("contact-name", t.contactNamePlaceholder);
+      setPlaceholder("contact-phone", t.contactPhonePlaceholder);
+      setPlaceholder("contact-email", t.contactEmailPlaceholder);
+      setPlaceholder("contact-message", t.contactMessagePlaceholder);
+      setText("contact-button", t.contactButton);
+      setText("contact-text", t.contactText);
+
       document.documentElement.lang = lang;
-      document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-      event.target.classList.add('active');
+
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+      });
     }
+
+    // Make sure the visible button state is correct when the page first loads.
+    document.addEventListener('DOMContentLoaded', () => {
+      setLanguage(document.documentElement.lang === 'es' ? 'es' : 'en');
+    });
 
     // Form Submission - Using Web3Forms for email delivery
     document.getElementById('contactForm').addEventListener('submit', async function(e) {
